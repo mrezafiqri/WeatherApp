@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="dist/output.css">
+
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="h-lvh w-full flex items-center px-4">
+  
+  <div class="continer mx-auto w-[400px] h-fit backdrop-blur bg-slate-400/20 rounded-lg overflow-hidden p-4 border border-slate-300 shadow-lg shadow-slate-300/50">
+
+    <div class="search-box relative flex items-center justify-center w-full h-fit border border-slate-300 rounded-lg">
+      <div class="h-full flex items-center pl-2 text-2xl text-slate-100">
+        <i class='bx bxs-location-plus'></i>
+      </div>
+      <input type="text" placeholder="Your's location" class="search w-full text-slate-100 p-2 border-none outline-none bg-transparent placeholder:capitalize uppercase placeholder:font-normal font-semibold">
+      <button class="btn-search absolute right-0 text-slate-100 h-full flex items-center px-2 text-2xl"><i class='bx bx-search'></i></button>
+    </div>
+
+    <div class="weather-box text-slate-100">
+    </div>
+
+    <div class="weather-details flex justify-evenly gap-2 items-center text-slate-100 "></div>
+
+  </div>
+  <script src="dist/js/app.js" type="module"></script>
+</body>
+</html>

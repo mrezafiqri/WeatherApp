@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  body {
+    @apply bg-[url('./img/bg-cloud.png')] bg-center bg-no-repeat bg-cover;
+  }
+}
