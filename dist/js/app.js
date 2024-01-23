@@ -16,24 +16,28 @@ const main = async () => {
   });
 
   const weather = () => {
-    return fetch(`${weatherAPI}&q=${keyword.value}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then(async (responseJSON) => {
-        if (responseJSON.error) {
-          weatherBox.innerHTML = await `
-            <h1 class="text-center pt-2">${responseJSON.error.message}</h1>
-          `;
-          weatherDetails.innerHTML = "";
-        }
+    try {
+      return fetch(`${weatherAPI}&q=${keyword.value}`)
+        .then((response) => {
+          return response.json();
+        })
+        .then(async (responseJSON) => {
+          if (responseJSON.error) {
+            weatherBox.innerHTML = await `
+              <h1 class="text-center pt-2">${responseJSON.error.message}</h1>
+            `;
+            weatherDetails.innerHTML = "";
+          }
 
-        let element = "";
-        element = await showWheater(responseJSON);
-        weatherBox.innerHTML = await element;
-        element = await detailWeather(responseJSON);
-        weatherDetails.innerHTML = await element;
-      });
+          let element = "";
+          element = await showWheater(responseJSON);
+          weatherBox.innerHTML = await element;
+          element = await detailWeather(responseJSON);
+          weatherDetails.innerHTML = await element;
+      });  
+    } catch (error) {
+      console.log(error.message)
+    };
   };
 
   const showWheater = async (data) => {
