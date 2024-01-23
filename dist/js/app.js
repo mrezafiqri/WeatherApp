@@ -1,18 +1,18 @@
-const main = () => {
+const main = async () => {
   const keyword = document.querySelector(".search");
   const btnSearch = document.querySelector(".btn-search");
   const weatherBox = document.querySelector(".weather-box");
   const weatherDetails = document.querySelector(".weather-details");
 
-  const weatherAPI =
-    "http://api.weatherapi.com/v1/current.json?key=fde450f6a3d2496fb4c32620241801&aqi=no";
+  const weatherAPI = await
+    "https://api.weatherapi.com/v1/current.json?key=fde450f6a3d2496fb4c32620241801&aqi=no";
 
-  btnSearch.addEventListener("click", () => {
-    weather();
+  btnSearch.addEventListener("click", async () => {
+    await weather();
   });
 
-  keyword.addEventListener("keyup", (e) => {
-    if (e.keyCode === 13) weather();
+  keyword.addEventListener("keyup", async (e) => {
+    if (e.keyCode === 13) await weather();
   });
 
   const weather = () => {
@@ -22,7 +22,7 @@ const main = () => {
       })
       .then(async (responseJSON) => {
         if (responseJSON.error) {
-          weatherBox.innerHTML = `
+          weatherBox.innerHTML = await `
             <h1 class="text-center pt-2">${responseJSON.error.message}</h1>
           `;
           weatherDetails.innerHTML = "";
@@ -36,8 +36,8 @@ const main = () => {
       });
   };
 
-  const showWheater = (data) => {
-    return `
+  const showWheater = async (data) => {
+    return await `
       <div class="box flex flex-col items-center my-12">
         <h2 class="font-medium text-xl capitalize pb-1 md:text-2xl">${data.location.name}, ${data.location.country}</h2>
         <img src="http:${data.current.condition.icon}" 
@@ -49,8 +49,8 @@ const main = () => {
     `;
   };
 
-  const detailWeather = (data) => {
-    return `
+  const detailWeather = async (data) => {
+    return await `
       <div class="humidity flex items-center gap-2 mb-10">
         <div class="text-[50px] flex items-start md:text-[54px]">
           <i class='bx bx-water'></i>
