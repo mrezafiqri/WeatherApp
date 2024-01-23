@@ -44,7 +44,7 @@ const main = async () => {
     return await `
       <div class="box flex flex-col items-center my-12">
         <h2 class="font-medium text-xl capitalize pb-1 md:text-2xl">${data.location.name}, ${data.location.country}</h2>
-        <img src="http:${data.current.condition.icon}" 
+        <img src="https:${data.current.condition.icon}" 
         alt="Weather Icons ${data.current.condition.text}"
         class="h-full w-16 mt-2">
         <h3 class="relative text-6xl font-bold pb-2 md:text-7xl">${data.current.temp_c}<span class="absolute top-2 text-lg">℃</span></h3>
